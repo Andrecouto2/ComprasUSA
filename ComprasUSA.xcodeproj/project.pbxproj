@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */; };
+		9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */; };
 		909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BC1F7FEE1800BD00EF /* AppDelegate.swift */; };
 		909595BF1F7FEE1800BD00EF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BE1F7FEE1800BD00EF /* FirstViewController.swift */; };
 		909595C11F7FEE1800BD00EF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595C01F7FEE1800BD00EF /* SecondViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
+		9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		909595B91F7FEE1800BD00EF /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		909595BC1F7FEE1800BD00EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		909595BE1F7FEE1800BD00EF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -57,12 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				909595BC1F7FEE1800BD00EF /* AppDelegate.swift */,
+				9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */,
 				909595BE1F7FEE1800BD00EF /* FirstViewController.swift */,
 				909595C01F7FEE1800BD00EF /* SecondViewController.swift */,
 				909595C21F7FEE1800BD00EF /* Main.storyboard */,
 				909595C51F7FEE1800BD00EF /* Assets.xcassets */,
 				909595C71F7FEE1800BD00EF /* LaunchScreen.storyboard */,
 				909595CA1F7FEE1800BD00EF /* Info.plist */,
+				9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */,
 			);
 			path = ComprasUSA;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				909595C11F7FEE1800BD00EF /* SecondViewController.swift in Sources */,
+				9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */,
+				9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */,
 				909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */,
 				909595BF1F7FEE1800BD00EF /* FirstViewController.swift in Sources */,
 			);
@@ -306,8 +314,22 @@
 				909595CF1F7FEE1800BD00EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */,
+			);
+			currentVersion = 9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */;
+			path = ComprasUSA.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 909595B11F7FEE1800BD00EF /* Project object */;
 }
