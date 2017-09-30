@@ -14,13 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    lazy var persistentContainer : NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "ComprasUSA")
-        container.loadPersistentStores(completionHandler: { (<#NSPersistentStoreDescription#>, <#Error?#>) in
-        })
-        return container
-    }()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -47,6 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // MARK: - Core Data Stack
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "MoviesLib")
+        container.loadPersistentStores(completionHandler: { (description: NSPersistentStoreDescription, error: Error?) in
+            
+        })
+        return container
+    }()
 
 
 }

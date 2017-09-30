@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */; };
+		901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */; };
+		901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */; };
 		9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */; };
 		9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */; };
 		909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BC1F7FEE1800BD00EF /* AppDelegate.swift */; };
-		909595BF1F7FEE1800BD00EF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BE1F7FEE1800BD00EF /* FirstViewController.swift */; };
-		909595C11F7FEE1800BD00EF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595C01F7FEE1800BD00EF /* SecondViewController.swift */; };
 		909595C41F7FEE1800BD00EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909595C21F7FEE1800BD00EF /* Main.storyboard */; };
 		909595C61F7FEE1800BD00EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909595C51F7FEE1800BD00EF /* Assets.xcassets */; };
 		909595C91F7FEE1800BD00EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909595C71F7FEE1800BD00EF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentsViewController.swift; sourceTree = "<group>"; };
+		901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTotalViewController.swift; sourceTree = "<group>"; };
 		9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
 		9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		909595B91F7FEE1800BD00EF /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		909595BC1F7FEE1800BD00EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		909595BE1F7FEE1800BD00EF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		909595C01F7FEE1800BD00EF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		909595C31F7FEE1800BD00EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		909595C51F7FEE1800BD00EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		909595C81F7FEE1800BD00EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		901CC5171F803C980027F22E /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */,
+				901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */,
+				901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */,
+			);
+			name = Shopping;
+			sourceTree = "<group>";
+		};
 		909595B01F7FEE1800BD00EF = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +72,9 @@
 		909595BB1F7FEE1800BD00EF /* ComprasUSA */ = {
 			isa = PBXGroup;
 			children = (
+				901CC5171F803C980027F22E /* Shopping */,
 				909595BC1F7FEE1800BD00EF /* AppDelegate.swift */,
 				9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */,
-				909595BE1F7FEE1800BD00EF /* FirstViewController.swift */,
-				909595C01F7FEE1800BD00EF /* SecondViewController.swift */,
 				909595C21F7FEE1800BD00EF /* Main.storyboard */,
 				909595C51F7FEE1800BD00EF /* Assets.xcassets */,
 				909595C71F7FEE1800BD00EF /* LaunchScreen.storyboard */,
@@ -146,11 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909595C11F7FEE1800BD00EF /* SecondViewController.swift in Sources */,
+				901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */,
 				9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */,
+				901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */,
 				9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */,
+				901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */,
 				909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */,
-				909595BF1F7FEE1800BD00EF /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
