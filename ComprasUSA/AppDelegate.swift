@@ -44,9 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Stack
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "MoviesLib")
-        container.loadPersistentStores(completionHandler: { (description: NSPersistentStoreDescription, error: Error?) in
-            
+        let container = NSPersistentContainer(name: "ComprasUSA")
+        container.loadPersistentStores(completionHandler: { (storeDescription: NSPersistentStoreDescription, error: Error?) in
         })
         return container
     }()

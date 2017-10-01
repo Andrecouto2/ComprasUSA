@@ -10,6 +10,8 @@
 		901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */; };
 		901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */; };
 		901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */; };
+		903ED5D21F8094B8005967F8 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */; };
+		9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041C2901F8080BF00507696 /* ProductViewController.swift */; };
 		9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */; };
 		9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */; };
 		909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BC1F7FEE1800BD00EF /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 		901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentsViewController.swift; sourceTree = "<group>"; };
 		901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTotalViewController.swift; sourceTree = "<group>"; };
+		903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		9041C2901F8080BF00507696 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
 		9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		909595B91F7FEE1800BD00EF /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,14 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		901CC5171F803C980027F22E /* Shopping */ = {
+		901CC5171F803C980027F22E /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				9041C2901F8080BF00507696 /* ProductViewController.swift */,
 				901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */,
 				901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */,
 				901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */,
+				903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */,
 			);
-			name = Shopping;
+			name = Product;
+			sourceTree = "<group>";
+		};
+		903ED5D01F8091E5005967F8 /* extentions */ = {
+			isa = PBXGroup;
+			children = (
+				9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */,
+			);
+			name = extentions;
 			sourceTree = "<group>";
 		};
 		909595B01F7FEE1800BD00EF = {
@@ -72,9 +86,9 @@
 		909595BB1F7FEE1800BD00EF /* ComprasUSA */ = {
 			isa = PBXGroup;
 			children = (
-				901CC5171F803C980027F22E /* Shopping */,
+				903ED5D01F8091E5005967F8 /* extentions */,
+				901CC5171F803C980027F22E /* Product */,
 				909595BC1F7FEE1800BD00EF /* AppDelegate.swift */,
-				9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */,
 				909595C21F7FEE1800BD00EF /* Main.storyboard */,
 				909595C51F7FEE1800BD00EF /* Assets.xcassets */,
 				909595C71F7FEE1800BD00EF /* LaunchScreen.storyboard */,
@@ -158,8 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */,
+				903ED5D21F8094B8005967F8 /* ProductTableViewCell.swift in Sources */,
 				9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */,
 				901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */,
+				9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */,
 				9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */,
 				901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */,
 				909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */,
