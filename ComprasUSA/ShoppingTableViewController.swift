@@ -18,6 +18,7 @@ class ShoppingTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 106
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
         label.text = "Sua lista está vazia!"
         label.textAlignment = .center
         label.textColor = .black
@@ -26,7 +27,9 @@ class ShoppingTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ProductViewController {
-            vc.product = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
+            if (tableView.indexPathForSelectedRow != nil ) {
+                vc.product = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
+            }
         }
     }
     
@@ -50,7 +53,7 @@ class ShoppingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = fetchedResultController.fetchedObjects?.count {
+        if let count = fetchedResultController?.fetchedObjects?.count {
             tableView.backgroundView = (count == 0) ? label : nil
             return count
         } else {
