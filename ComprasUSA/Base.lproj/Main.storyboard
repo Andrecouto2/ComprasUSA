@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BIT-6a-bgk" id="vVC-bS-NZa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
@@ -73,7 +73,7 @@
                                     <outlet property="nameLabel" destination="mRS-u9-l7D" id="sos-uE-1eN"/>
                                     <outlet property="photoImageView" destination="toO-nD-554" id="wbl-u5-gpN"/>
                                     <outlet property="priceLabel" destination="MPN-kD-eCd" id="23U-SN-d0c"/>
-                                    <segue destination="Fhv-J0-4OC" kind="show" id="Imc-Qi-myi"/>
+                                    <segue destination="eAH-1f-oNu" kind="show" id="yxh-QI-0jo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,7 @@
                     <navigationItem key="navigationItem" title="Lista de Compras" id="saO-Qz-9IO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1BX-FX-yjN">
                             <connections>
-                                <segue destination="Fhv-J0-4OC" kind="show" id="0YQ-XJ-COh"/>
+                                <segue destination="eAH-1f-oNu" kind="show" id="Bph-xS-rqv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -219,22 +219,6 @@
             </objects>
             <point key="canvasLocation" x="2810.625" y="-490.14084507042253"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="mAd-NO-de0">
-            <objects>
-                <navigationController id="Fhv-J0-4OC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yJz-nw-IDL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="eAH-1f-oNu" kind="relationship" relationship="rootViewController" id="EEC-H3-Brf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cxk-uH-ODf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2123" y="227"/>
-        </scene>
         <!--Compras-->
         <scene sceneID="ICb-hH-dcJ">
             <objects>
@@ -339,7 +323,7 @@
         <image name="ic_shopping" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gl2-0a-VqG"/>
-        <segue reference="Imc-Qi-myi"/>
+        <segue reference="lzU-1b-eKA"/>
+        <segue reference="yxh-QI-0jo"/>
     </inferredMetricsTieBreakers>
 </document>

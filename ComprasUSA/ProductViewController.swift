@@ -67,7 +67,9 @@ class ProductViewController: UIViewController {
         if product != nil && product.name == nil {
             context.delete(product)
         }
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        
+        self.navigationController?.popViewController(animated:true)
     }
 
     func finish() {
