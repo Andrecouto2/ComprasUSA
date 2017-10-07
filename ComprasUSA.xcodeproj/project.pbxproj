@@ -12,6 +12,7 @@
 		901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */; };
 		903ED5D21F8094B8005967F8 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */; };
 		9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041C2901F8080BF00507696 /* ProductViewController.swift */; };
+		907FECD51F8964C50023514E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 907FECD41F8964C50023514E /* Settings.bundle */; };
 		9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */; };
 		9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */; };
 		909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909595BC1F7FEE1800BD00EF /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTotalViewController.swift; sourceTree = "<group>"; };
 		903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		9041C2901F8080BF00507696 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		907FECD41F8964C50023514E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
 		9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		909595B91F7FEE1800BD00EF /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 				909595C71F7FEE1800BD00EF /* LaunchScreen.storyboard */,
 				909595CA1F7FEE1800BD00EF /* Info.plist */,
 				9081D93A1F80132A0077A1DF /* ComprasUSA.xcdatamodeld */,
+				907FECD41F8964C50023514E /* Settings.bundle */,
 			);
 			path = ComprasUSA;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907FECD51F8964C50023514E /* Settings.bundle in Resources */,
 				909595C91F7FEE1800BD00EF /* LaunchScreen.storyboard in Resources */,
 				909595C61F7FEE1800BD00EF /* Assets.xcassets in Resources */,
 				909595C41F7FEE1800BD00EF /* Main.storyboard in Resources */,

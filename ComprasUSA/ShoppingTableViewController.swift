@@ -66,13 +66,25 @@ class ShoppingTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductTableViewCell
         let product = fetchedResultController.object(at: indexPath)
         cell.nameLabel.text = product.name
-        cell.priceLabel.text = String(product.value)
+        cell.priceLabel.text = "US$ : \(product.value)"
         if let image = product.photo as? UIImage {
             cell.photoImageView.image = image
         } else {
             cell.photoImageView.image = nil
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let product = fetchedResultController.object(at: indexPath)
+            context.delete(product)
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }
