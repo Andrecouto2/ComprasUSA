@@ -43,17 +43,28 @@ class AdjustmentsViewController: UIViewController {
     }
     
     func showAlert(type: StateType, state: State?) {
+        
         let title = (type == .add) ? "Adicionar" : "Editar"
         let alert = UIAlertController(title: "\(title) Estado", message: nil, preferredStyle: .alert)
+        
         alert.addTextField { (textField: UITextField) in
             textField.placeholder = "Nome do estado"
             if let name = state?.name {
                 textField.text = name
             }
         }
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Taxa do estado"
+            if let tax = state?.tax {
+                textField.text = String(tax)
+            }
+        }
+        
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) in
             let state = state ?? State(context: self.context)
             state.name = alert.textFields?.first?.text
+            state.tax = Double((alert.textFields?[1].text)!)!
             do {
                 try self.context.save()
                 self.loadStates()
@@ -61,6 +72,7 @@ class AdjustmentsViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }))
+        
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -79,6 +91,23 @@ class AdjustmentsViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension AdjustmentsViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Excluir") { (action: UITableViewRowAction, indexPath: IndexPath) in
+            let state = self.dataSource[indexPath.row]
+            self.context.delete(state)
+            try! self.context.save()
+            self.dataSource.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Editar") { (action: UITableViewRowAction, indexPath: IndexPath) in
+            let state = self.dataSource[indexPath.row]
+            tableView.setEditing(false, animated: true)
+            self.showAlert(type: .edit, state: state)
+        }
+        editAction.backgroundColor = .blue
+        return [editAction, deleteAction]
+    }
 }
 
 // MARK: - UITableViewDelegate
