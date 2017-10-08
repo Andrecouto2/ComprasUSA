@@ -12,6 +12,7 @@ class AdjustmentsViewController: UIViewController {
 
     @IBOutlet weak var tfQuotation: UITextField!
     @IBOutlet weak var tfIof: UITextField!
+    @IBOutlet weak var tbState: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,4 +24,7 @@ class AdjustmentsViewController: UIViewController {
         tfIof.text = UserDefaults.standard.string(forKey: "iof")
     }
 
+    @IBAction func AddState(_ sender: UIButton) {
+        
+    }
 }

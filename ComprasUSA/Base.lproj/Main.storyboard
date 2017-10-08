@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BIT-6a-bgk" id="vVC-bS-NZa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
@@ -329,31 +329,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar estado" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-Lz-J2D">
-                                <rect key="frame" x="16" y="490" width="288" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo9-Rk-qIh">
+                                <rect key="frame" x="0.0" y="489" width="304" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="SeV-44-AYE"/>
+                                    <constraint firstAttribute="height" constant="30" id="jUl-Sb-KLm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23255315674121077" green="0.5487890872186878" blue="0.6237451424870466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Adicionar estado"/>
+                                <connections>
+                                    <action selector="AddState:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="5Fv-Cz-Fw5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GH2-Nq-slb" firstAttribute="centerY" secondItem="MGT-x5-mEa" secondAttribute="centerY" id="04h-1v-RaI"/>
-                            <constraint firstItem="l8f-Lz-J2D" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="1sh-7T-RvQ"/>
                             <constraint firstItem="MGT-x5-mEa" firstAttribute="trailing" secondItem="Vsb-ew-h69" secondAttribute="trailing" id="7cW-Zh-Lsv"/>
-                            <constraint firstItem="l8f-Lz-J2D" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="8uC-Pf-iFP"/>
+                            <constraint firstAttribute="trailing" secondItem="eo9-Rk-qIh" secondAttribute="trailing" constant="16" id="AOn-xh-vT6"/>
                             <constraint firstAttribute="trailing" secondItem="PP7-6l-y3q" secondAttribute="trailing" id="FaE-jy-4Ll"/>
                             <constraint firstItem="Mze-AE-25G" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="Ll1-Cl-A5n"/>
                             <constraint firstItem="Sq3-O5-jkt" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="MfU-EM-xem"/>
                             <constraint firstItem="PP7-6l-y3q" firstAttribute="top" secondItem="Sq3-O5-jkt" secondAttribute="bottom" constant="8" id="Qyt-45-NhZ"/>
-                            <constraint firstItem="l8f-Lz-J2D" firstAttribute="top" secondItem="PP7-6l-y3q" secondAttribute="bottom" constant="3" id="Tvu-QS-kmN"/>
                             <constraint firstAttribute="trailing" secondItem="Sq3-O5-jkt" secondAttribute="trailing" id="a4z-vs-yPG"/>
                             <constraint firstItem="MGT-x5-mEa" firstAttribute="top" secondItem="Vsb-ew-h69" secondAttribute="bottom" constant="25" id="aOQ-7Y-RfF"/>
                             <constraint firstItem="PP7-6l-y3q" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="crS-xi-iNB"/>
                             <constraint firstItem="Mze-AE-25G" firstAttribute="centerY" secondItem="Vsb-ew-h69" secondAttribute="centerY" id="hWH-aP-NJ6"/>
+                            <constraint firstItem="eo9-Rk-qIh" firstAttribute="top" secondItem="PP7-6l-y3q" secondAttribute="bottom" constant="2" id="hdG-lp-Auj"/>
+                            <constraint firstItem="eo9-Rk-qIh" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="mEr-s8-Vlu"/>
                             <constraint firstItem="GH2-Nq-slb" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="rBX-OI-XNt"/>
                             <constraint firstItem="Sq3-O5-jkt" firstAttribute="top" secondItem="GH2-Nq-slb" secondAttribute="bottom" constant="8" id="rxx-jC-SlB"/>
                             <constraint firstItem="Vsb-ew-h69" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="w8E-Yf-F03"/>
@@ -362,6 +363,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Ajustes" image="ic_adjustments" selectedImage="ic_adjustments" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="tbState" destination="PP7-6l-y3q" id="cXd-Qa-d5k"/>
                         <outlet property="tfIof" destination="GH2-Nq-slb" id="ot8-Oe-J3l"/>
                         <outlet property="tfQuotation" destination="Mze-AE-25G" id="FLN-H5-8Lt"/>
                     </connections>
