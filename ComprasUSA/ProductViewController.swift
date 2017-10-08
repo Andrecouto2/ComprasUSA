@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ProductViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class ProductViewController: UIViewController {
     
     var pickerView: UIPickerView!
     
-    var dataSource:[String] = ["Califórnia", "Texas", "Nova York", "Novo México", "Nevada"]
+    var dataSource:[State] = []
     
     // MARK: - Properties
     var smallImage: UIImage!
@@ -59,8 +60,20 @@ class ProductViewController: UIViewController {
         super.viewWillAppear(animated)
         if product != nil {
             if let state = product.states {
-                //tfState.text = state.map({($0 as! State).name!}).joined(separator: " | ")
+                tfState.text = state.name!
             }
+        }
+        loadStates()
+    }
+    
+    func loadStates() {
+        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            dataSource = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 
@@ -74,12 +87,11 @@ class ProductViewController: UIViewController {
     }
 
     func finish() {
-        
         tfState.resignFirstResponder()
     }
     
     func done() {
-        tfState.text = dataSource[pickerView.selectedRow(inComponent: 0)]
+        tfState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
         finish()
     }
 
@@ -119,7 +131,8 @@ class ProductViewController: UIViewController {
         product.name = tfName.text!
         product.value = Double(tfValue.text!)!
         product.isBoughtByCard = swCard.isOn
-        //add state
+        product.states = dataSource[pickerView.selectedRow(inComponent: 0)]
+        
         if smallImage != nil {
             product.photo = smallImage
         }
@@ -157,7 +170,7 @@ extension ProductViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension ProductViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //Retornando o texto recuperado do objeto dataSource, baseado na linha selecionada
-        return dataSource[row]
+        return dataSource[row].name
     }
 }
 

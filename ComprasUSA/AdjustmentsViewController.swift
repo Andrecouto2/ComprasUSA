@@ -25,6 +25,9 @@ class AdjustmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tbState.estimatedRowHeight = 106
+        tbState.rowHeight = UITableViewAutomaticDimension
+        tbState.tableFooterView = UIView()
         tbState.delegate = self
         tbState.dataSource = self
         loadStates()
