@@ -124,7 +124,7 @@ class ProductViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @IBAction func saveProduct(_ sender: UIButton) {
         if product == nil {
             product = Product(context: context)
         }

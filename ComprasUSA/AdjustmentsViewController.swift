@@ -132,7 +132,6 @@ extension AdjustmentsViewController: UITableViewDataSource {
             tableView.backgroundView = label
             return 0
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,6 +139,7 @@ extension AdjustmentsViewController: UITableViewDataSource {
         let state = dataSource[indexPath.row]
         cell.textLabel?.text = state.name
         cell.detailTextLabel?.text = String(state.tax)
+        cell.detailTextLabel?.textColor = .red
         return cell
     }
     
