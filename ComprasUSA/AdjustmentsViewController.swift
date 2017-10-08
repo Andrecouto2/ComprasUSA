@@ -23,6 +23,8 @@ class AdjustmentsViewController: UIViewController {
     // MARK: - Properties
     var dataSource: [State] = []
     
+    var label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 22))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tbState.estimatedRowHeight = 106
@@ -30,6 +32,9 @@ class AdjustmentsViewController: UIViewController {
         tbState.tableFooterView = UIView()
         tbState.delegate = self
         tbState.dataSource = self
+        label.text = "Sua lista está vazia!"
+        label.textAlignment = .center
+        label.textColor = .black
         loadStates()
     }
     
@@ -111,13 +116,23 @@ extension AdjustmentsViewController: UITableViewDelegate {
         editAction.backgroundColor = .blue
         return [editAction, deleteAction]
     }
+    
 }
 
 // MARK: - UITableViewDelegate
 extension AdjustmentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+        let count = try! context.fetch(fetchRequest).count
+        if count > 0 {
+            tableView.backgroundView = (count == 0) ? label : nil
+            return count
+        } else {
+            tableView.backgroundView = label
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,4 +142,5 @@ extension AdjustmentsViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = String(state.tax)
         return cell
     }
+    
 }
