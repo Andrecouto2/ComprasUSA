@@ -55,19 +55,20 @@ class ProductViewController: UIViewController {
         tfState.inputAccessoryView = toolbar
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if product == nil {
-            product = Product(context: context)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if product != nil {
+            if let state = product.states {
+                //tfState.text = state.map({($0 as! State).name!}).joined(separator: " | ")
+            }
         }
-        //let vc = segue.destination as! StateViewController
-        //vc.product = product
     }
 
     @IBAction func cancel(_ sender: UIBarButtonItem?) {
         if product != nil && product.name == nil {
             context.delete(product)
         }
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
         self.navigationController?.popViewController(animated:true)
     }
@@ -118,7 +119,7 @@ class ProductViewController: UIViewController {
         product.name = tfName.text!
         product.value = Double(tfValue.text!)!
         product.isBoughtByCard = swCard.isOn
-        //product.addToStates()
+        //add state
         if smallImage != nil {
             product.photo = smallImage
         }
