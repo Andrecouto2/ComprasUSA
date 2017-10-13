@@ -34,7 +34,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRS-u9-l7D">
-                                            <rect key="frame" x="104" y="0.0" width="214" height="21.5"/>
+                                            <rect key="frame" x="104" y="16" width="214" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="214" id="S3Z-9a-W5a"/>
                                                 <constraint firstAttribute="height" constant="21" id="gh0-L8-XzJ"/>
@@ -56,6 +56,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="MPN-kD-eCd" firstAttribute="leading" secondItem="toO-nD-554" secondAttribute="trailing" constant="14" id="5rZ-LF-CpQ"/>
+                                        <constraint firstItem="mRS-u9-l7D" firstAttribute="top" secondItem="vVC-bS-NZa" secondAttribute="top" constant="16" id="GJY-VD-SkZ"/>
                                         <constraint firstAttribute="bottom" secondItem="toO-nD-554" secondAttribute="bottom" id="RlY-cU-X3p"/>
                                         <constraint firstItem="toO-nD-554" firstAttribute="top" secondItem="vVC-bS-NZa" secondAttribute="top" id="YvU-JB-ciU"/>
                                         <constraint firstAttribute="bottom" secondItem="toO-nD-554" secondAttribute="bottom" id="ZW9-qQ-ESj"/>
@@ -66,7 +67,6 @@
                                         <constraint firstItem="toO-nD-554" firstAttribute="top" secondItem="vVC-bS-NZa" secondAttribute="top" id="qwS-fR-1YY"/>
                                         <constraint firstItem="MPN-kD-eCd" firstAttribute="trailing" secondItem="vVC-bS-NZa" secondAttribute="trailingMargin" id="rDt-ke-xKX"/>
                                         <constraint firstAttribute="trailing" secondItem="mRS-u9-l7D" secondAttribute="trailing" constant="8" id="sVB-s3-6nR"/>
-                                        <constraint firstItem="mRS-u9-l7D" firstAttribute="top" secondItem="vVC-bS-NZa" secondAttribute="top" id="wRf-PY-gk7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -396,13 +396,63 @@
                     <view key="view" contentMode="scaleToFill" id="afX-9g-omp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMI-wu-eU0">
+                                <rect key="frame" x="24" y="52" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kGS-yv-rtN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddV-Zm-b7Y">
+                                <rect key="frame" x="8" y="89" width="304" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.22305841361712764" blue="0.17636470845808916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly3-sP-bKF">
+                                <rect key="frame" x="8" y="201" width="304" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mm1-vr-hEz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbP-kl-T4v">
+                                <rect key="frame" x="8" y="238" width="304" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="0.43511491012167236" green="0.91833650726110827" blue="0.42275199374765526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ddV-Zm-b7Y" firstAttribute="top" secondItem="AMI-wu-eU0" secondAttribute="bottom" constant="16" id="4T9-6B-6N0"/>
+                            <constraint firstAttribute="trailing" secondItem="ly3-sP-bKF" secondAttribute="trailing" constant="8" id="5em-IT-2R2"/>
+                            <constraint firstItem="ddV-Zm-b7Y" firstAttribute="leading" secondItem="afX-9g-omp" secondAttribute="leading" constant="8" id="7M1-EZ-pjK"/>
+                            <constraint firstItem="AMI-wu-eU0" firstAttribute="top" secondItem="5Id-Wk-rgJ" secondAttribute="bottom" constant="32" id="MBR-MO-Jx5"/>
+                            <constraint firstItem="ly3-sP-bKF" firstAttribute="leading" secondItem="afX-9g-omp" secondAttribute="leading" constant="8" id="Uhn-GB-Xzn"/>
+                            <constraint firstItem="ly3-sP-bKF" firstAttribute="top" secondItem="ddV-Zm-b7Y" secondAttribute="bottom" constant="64" id="ZdV-Wh-OS8"/>
+                            <constraint firstItem="PbP-kl-T4v" firstAttribute="leading" secondItem="afX-9g-omp" secondAttribute="leading" constant="8" id="ep3-d9-usf"/>
+                            <constraint firstItem="PbP-kl-T4v" firstAttribute="top" secondItem="ly3-sP-bKF" secondAttribute="bottom" constant="16" id="fI3-VJ-lup"/>
+                            <constraint firstItem="AMI-wu-eU0" firstAttribute="trailing" secondItem="afX-9g-omp" secondAttribute="trailingMargin" constant="8" id="gYd-Td-rUe"/>
+                            <constraint firstAttribute="trailing" secondItem="PbP-kl-T4v" secondAttribute="trailing" constant="8" id="q1I-Gj-b0P"/>
+                            <constraint firstAttribute="trailing" secondItem="ddV-Zm-b7Y" secondAttribute="trailing" constant="8" id="qR1-RO-4lv"/>
+                            <constraint firstItem="AMI-wu-eU0" firstAttribute="leading" secondItem="afX-9g-omp" secondAttribute="leadingMargin" constant="8" id="v7R-LA-j8O"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Total de compra" image="ic_shopping" selectedImage="ic_shopping" id="TWt-lh-Dgg"/>
+                    <connections>
+                        <outlet property="lbTotalDollar" destination="ddV-Zm-b7Y" id="GIk-ek-45V"/>
+                        <outlet property="lbTotalReal" destination="PbP-kl-T4v" id="7gy-fU-7of"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctx-Nc-s6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="1107"/>
+            <point key="canvasLocation" x="-5.625" y="1105.9859154929577"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

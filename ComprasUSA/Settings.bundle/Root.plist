@@ -26,7 +26,7 @@
 			<key>Key</key>
 			<string>iof</string>
 			<key>DefaultValue</key>
-			<string>6.8</string>
+			<string>6.38</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
 		</dict>

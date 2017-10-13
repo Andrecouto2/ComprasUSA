@@ -168,6 +168,7 @@ extension ProductViewController: UIImagePickerControllerDelegate, UINavigationCo
 }
 
 extension ProductViewController: UIPickerViewDelegate {
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //Retornando o texto recuperado do objeto dataSource, baseado na linha selecionada
         return dataSource[row].name
@@ -175,10 +176,20 @@ extension ProductViewController: UIPickerViewDelegate {
 }
 
 extension ProductViewController: UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1    //Usaremos apenas 1 coluna (component) em nosso pickerView
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return dataSource.count //O total de linhas será o total de itens em nosso dataSource
     }
+}
+
+extension ProductViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
