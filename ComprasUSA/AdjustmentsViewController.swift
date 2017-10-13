@@ -27,6 +27,10 @@ class AdjustmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tfQuotation.delegate = self
+        tfQuotation.tag = 1
+        tfIof.delegate = self
+        tfIof.tag = 2
         tbState.estimatedRowHeight = 106
         tbState.rowHeight = UITableViewAutomaticDimension
         tbState.tableFooterView = UIView()
@@ -141,6 +145,26 @@ extension AdjustmentsViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = String(state.tax)
         cell.detailTextLabel?.textColor = .red
         return cell
+    }
+    
+}
+
+extension AdjustmentsViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        switch textField.tag {
+        case 1:
+            UserDefaults.standard.set(tfQuotation.text!, forKey: "quotation")
+        case 2:
+            UserDefaults.standard.set(tfIof.text!, forKey: "iof")
+        default: break
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
