@@ -17,6 +17,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var btAddState: UIButton!
     @IBOutlet weak var tfValue: UITextField!
     @IBOutlet weak var swCard: UISwitch!
+    @IBOutlet weak var btSaveProduct: UIButton!
     
     var pickerView: UIPickerView!
     
@@ -38,6 +39,10 @@ class ProductViewController: UIViewController {
             }
         }
         
+        tfName.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
+        tfValue.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
+        tfState.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
+        
         pickerView = UIPickerView()
         pickerView.backgroundColor = .white
         pickerView.delegate = self
@@ -58,12 +63,15 @@ class ProductViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if product != nil {
             if let state = product.states {
                 tfState.text = state.name!
             }
         }
+        
         loadStates()
+        validateForm()
     }
     
     func loadStates() {
@@ -85,14 +93,15 @@ class ProductViewController: UIViewController {
         
         self.navigationController?.popViewController(animated:true)
     }
-
-    func finish() {
-        tfState.resignFirstResponder()
-    }
     
     func done() {
         tfState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
+        validateForm()
         finish()
+    }
+    
+    func finish() {
+        tfState.resignFirstResponder()
     }
 
     @IBAction func setProductImageView(_ sender: UIButton) {
@@ -128,14 +137,26 @@ class ProductViewController: UIViewController {
         if product == nil {
             product = Product(context: context)
         }
-        product.name = tfName.text!
-        product.value = Double(tfValue.text!)!
+        
+        guard let name = tfName.text else {
+            return
+        }
+        guard let value = tfValue.text, (Double(value) != nil) else {
+            return
+        }
+        
+        product.name = name
+        product.value = Double(value)!
         product.isBoughtByCard = swCard.isOn
         product.states = dataSource[pickerView.selectedRow(inComponent: 0)]
+        
+        print("\(pickerView.selectedRow(inComponent: 0))")
+        print("\(dataSource[pickerView.selectedRow(inComponent: 0)])")
         
         if smallImage != nil {
             product.photo = smallImage
         }
+        
         do {
             try context.save()
         } catch {
@@ -152,6 +173,42 @@ class ProductViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func validateTextField(_ sender: UITextField) {
+        validateForm()
+    }
+    
+    func validateForm() {
+        var isFormValid = true;
+        
+        if let name = tfName.text, name.isEmpty {
+            if name.isEmpty {
+                isFormValid = false;
+            }
+        }
+        if let state = tfState.text {
+            if state.isEmpty {
+                isFormValid = false;
+            }
+        }
+        if let value = tfValue.text {
+            if value.isEmpty || Double(value) == nil {
+                isFormValid = false
+            }
+        }
+        
+        enableSaveButton(isFormValid)
+    }
+    
+    func enableSaveButton(_ enabled: Bool) {
+        
+        btSaveProduct.isEnabled = enabled
+        
+        if btSaveProduct.isEnabled {
+            btSaveProduct.alpha = 1.0
+        } else {
+            btSaveProduct.alpha = 0.5
+        }
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate

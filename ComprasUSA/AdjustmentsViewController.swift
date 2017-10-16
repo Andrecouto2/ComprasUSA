@@ -27,18 +27,22 @@ class AdjustmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tfQuotation.delegate = self
         tfQuotation.tag = 1
         tfIof.delegate = self
         tfIof.tag = 2
+        
         tbState.estimatedRowHeight = 106
         tbState.rowHeight = UITableViewAutomaticDimension
         tbState.tableFooterView = UIView()
         tbState.delegate = self
         tbState.dataSource = self
+        
         label.text = "Sua lista está vazia!"
         label.textAlignment = .center
         label.textColor = .black
+        
         loadStates()
     }
     
@@ -61,6 +65,7 @@ class AdjustmentsViewController: UIViewController {
         
         alert.addTextField { (textField: UITextField) in
             textField.placeholder = "Nome do estado"
+            
             if let name = state?.name {
                 textField.text = name
             }
@@ -68,15 +73,25 @@ class AdjustmentsViewController: UIViewController {
         
         alert.addTextField { (textField: UITextField) in
             textField.placeholder = "Taxa do estado"
+            textField.keyboardType = .decimalPad
+            
             if let tax = state?.tax {
                 textField.text = String(tax)
             }
         }
         
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) in
+            guard let name = alert.textFields?[0].text else {
+                return
+            }
+            guard let tax = alert.textFields?[1].text, (Double(tax) != nil) else {
+                return
+            }
+            
             let state = state ?? State(context: self.context)
-            state.name = alert.textFields?.first?.text
-            state.tax = Double((alert.textFields?[1].text)!)!
+            state.name = name
+            state.tax = Double(tax)!
+            
             do {
                 try self.context.save()
                 self.loadStates()
@@ -94,6 +109,8 @@ class AdjustmentsViewController: UIViewController {
         tfQuotation.text = UserDefaults.standard.string(forKey: "quotation")
         tfIof.text = UserDefaults.standard.string(forKey: "iof")
     }
+    
+    
 
     @IBAction func AddState(_ sender: UIButton) {
         showAlert(type: .add, state: nil)

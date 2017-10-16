@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BIT-6a-bgk" id="vVC-bS-NZa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
@@ -115,7 +115,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" highlightedImage="default" translatesAutoresizingMaskIntoConstraints="NO" id="W6t-ll-fu5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" highlightedImage="default" translatesAutoresizingMaskIntoConstraints="NO" id="W6t-ll-fu5">
                                 <rect key="frame" x="16" y="110" width="288" height="177"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="177" id="vpT-So-AMc"/>
@@ -137,13 +137,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valor (U$)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="744-3j-10O">
-                                <rect key="frame" x="16" y="341" width="139.5" height="30"/>
+                                <rect key="frame" x="16" y="341" width="146.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="p2A-u2-2ie"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-4e-oiI">
                                 <rect key="frame" x="255" y="340" width="51" height="31"/>
@@ -152,11 +152,11 @@
                                 </constraints>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cartão ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GV-YD-duv">
-                                <rect key="frame" x="163.5" y="344" width="75.5" height="24"/>
+                                <rect key="frame" x="170.5" y="344" width="68.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="fEP-yQ-AdZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -171,14 +171,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRI-7w-3RH">
                                 <rect key="frame" x="16" y="387" width="288" height="44"/>
-                                <color key="backgroundColor" red="0.11644395440450284" green="0.31271404213034487" blue="0.81913860103626945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="TtI-hk-Jfs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <state key="normal" title="CADASTRAR">
                                     <color key="titleColor" red="0.97936365749999998" green="1" blue="0.99501217799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.20714571700000001" green="0.48883150209999998" blue="0.55559828369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="saveProduct:" destination="eAH-1f-oNu" eventType="touchUpInside" id="BYG-J9-cKJ"/>
@@ -221,6 +220,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btAddState" destination="xQc-hW-tYn" id="Ggl-6J-n8G"/>
+                        <outlet property="btSaveProduct" destination="tRI-7w-3RH" id="S7X-JR-ORS"/>
                         <outlet property="ivProduct" destination="W6t-ll-fu5" id="hna-pb-tAl"/>
                         <outlet property="swCard" destination="d9q-4e-oiI" id="kBn-Z3-3Nw"/>
                         <outlet property="tfName" destination="P92-Te-OgI" id="dBX-pv-yqN"/>
@@ -236,7 +236,7 @@
         <scene sceneID="ICb-hH-dcJ">
             <objects>
                 <navigationController id="coU-1J-51R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Compras" image="ic_shopping" selectedImage="ic_shopping" id="HaW-E3-sJZ"/>
+                    <tabBarItem key="tabBarItem" title="Compras" image="shopping-bag" selectedImage="shopping-bag" id="HaW-E3-sJZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gb1-49-sQ0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -320,18 +320,18 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n4u-M4-a6A" id="NsT-mt-Wid">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tU4-Cl-Jiq">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wkL-g0-1lJ">
-                                                    <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -374,7 +374,7 @@
                             <constraint firstItem="Vsb-ew-h69" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="w8E-Yf-F03"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="ic_adjustments" selectedImage="ic_adjustments" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="settings" selectedImage="settings" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tbState" destination="PP7-6l-y3q" id="cXd-Qa-d5k"/>
                         <outlet property="tfIof" destination="GH2-Nq-slb" id="ot8-Oe-J3l"/>
@@ -444,7 +444,7 @@
                             <constraint firstItem="AMI-wu-eU0" firstAttribute="leading" secondItem="afX-9g-omp" secondAttribute="leadingMargin" constant="8" id="v7R-LA-j8O"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Total de compra" image="ic_shopping" selectedImage="ic_shopping" id="TWt-lh-Dgg"/>
+                    <tabBarItem key="tabBarItem" title="Total de compra" image="invoice" selectedImage="invoice" id="TWt-lh-Dgg"/>
                     <connections>
                         <outlet property="lbTotalDollar" destination="ddV-Zm-b7Y" id="GIk-ek-45V"/>
                         <outlet property="lbTotalReal" destination="PbP-kl-T4v" id="7gy-fU-7of"/>
@@ -478,8 +478,10 @@
     <resources>
         <image name="default" width="16" height="16"/>
         <image name="defaultPhoto" width="540" height="540"/>
-        <image name="ic_adjustments" width="26" height="26"/>
-        <image name="ic_shopping" width="26" height="26"/>
+        <image name="gift" width="353" height="211"/>
+        <image name="invoice" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
+        <image name="shopping-bag" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yxh-QI-0jo"/>
