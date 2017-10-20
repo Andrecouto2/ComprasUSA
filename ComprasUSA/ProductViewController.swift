@@ -32,16 +32,20 @@ class ProductViewController: UIViewController {
 
         if product != nil {
             tfName.text = product.name
-            tfValue.text = String(product.value)
+            tfValue.text = product.value.getCurrencyInputFormat(currencySymbol: "US$")
             swCard.setOn(product.isBoughtByCard , animated: false)
+            
             if let image = product.photo as? UIImage {
                 ivProduct.image = image
             }
+            
+            btSaveProduct.setTitle("SALVAR", for: .normal)
         }
         
-        tfName.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
-        tfValue.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
-        tfState.addTarget(self, action: #selector(self.validateTextField(_:)), for: UIControlEvents.editingChanged)
+        tfName.addTarget(self, action: #selector(self.validateTextField(_:)), for: .editingChanged)
+        tfValue.addTarget(self, action: #selector(self.formatCurrencyValue(_:)), for: .editingChanged)
+        tfValue.addTarget(self, action: #selector(self.validateTextField(_:)), for: .editingChanged)
+        tfState.addTarget(self, action: #selector(self.validateTextField(_:)), for: .editingChanged)
         
         pickerView = UIPickerView()
         pickerView.backgroundColor = .white
@@ -141,12 +145,12 @@ class ProductViewController: UIViewController {
         guard let name = tfName.text else {
             return
         }
-        guard let value = tfValue.text, (Double(value) != nil) else {
+        guard let value = tfValue.text, (Double(value.removeCurrencyInputFormat()) != nil) else {
             return
         }
         
         product.name = name
-        product.value = Double(value)!
+        product.value = Double(value.removeCurrencyInputFormat())!
         product.isBoughtByCard = swCard.isOn
         product.states = dataSource[pickerView.selectedRow(inComponent: 0)]
         
@@ -173,6 +177,12 @@ class ProductViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func formatCurrencyValue(_ sender: UITextField) {
+        if let formattedValue = sender.text?.addCurrencyInputFormat(currencySymbol: "US$") {
+            sender.text = formattedValue
+        }
+    }
+    
     func validateTextField(_ sender: UITextField) {
         validateForm()
     }
@@ -191,7 +201,7 @@ class ProductViewController: UIViewController {
             }
         }
         if let value = tfValue.text {
-            if value.isEmpty || Double(value) == nil {
+            if value.isEmpty || Double(value.removeCurrencyInputFormat()) == nil {
                 isFormValid = false
             }
         }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A2650701F9980420071D6E5 /* String+CurrencyInputFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26506F1F9980420071D6E5 /* String+CurrencyInputFormat.swift */; };
+		8A2650721F9990C30071D6E5 /* Double+CurrencyInputFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2650711F9990C30071D6E5 /* Double+CurrencyInputFormat.swift */; };
 		901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */; };
 		901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */; };
 		901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A26506F1F9980420071D6E5 /* String+CurrencyInputFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CurrencyInputFormat.swift"; sourceTree = "<group>"; };
+		8A2650711F9990C30071D6E5 /* Double+CurrencyInputFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyInputFormat.swift"; sourceTree = "<group>"; };
 		901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentsViewController.swift; sourceTree = "<group>"; };
 		901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTotalViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */,
+				8A26506F1F9980420071D6E5 /* String+CurrencyInputFormat.swift */,
+				8A2650711F9990C30071D6E5 /* Double+CurrencyInputFormat.swift */,
 			);
 			name = extentions;
 			sourceTree = "<group>";
@@ -175,10 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2650721F9990C30071D6E5 /* Double+CurrencyInputFormat.swift in Sources */,
 				901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */,
 				903ED5D21F8094B8005967F8 /* ProductTableViewCell.swift in Sources */,
 				9081D93E1F801D530077A1DF /* UIViewController+CoreData.swift in Sources */,
 				901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */,
+				8A2650701F9980420071D6E5 /* String+CurrencyInputFormat.swift in Sources */,
 				9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */,
 				9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */,
 				901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */,
