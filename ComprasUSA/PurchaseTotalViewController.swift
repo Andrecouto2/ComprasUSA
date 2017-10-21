@@ -40,23 +40,13 @@ class PurchaseTotalViewController: UIViewController {
         var totalUSD: Double = 0
         var totalBRL: Double = 0
         
-        guard   let iofTaxValue = Double(UserDefaults.standard.string(forKey: "iof")!),
-                let usdQuotation = Double(UserDefaults.standard.string(forKey: "quotation")!)
-        else {
-            lbTotalDollar.text = "-"
-            lbTotalReal.text = "-"
-            
-            showErrorAlert()
-            
-            return
-        }
-        
         for product in dataSource {
-            var productValueBRL = product.value * ((product.states!.tax / 100) + 1)
-            productValueBRL *= usdQuotation
-            
-            if product.isBoughtByCard {
-                productValueBRL *= (iofTaxValue / 100) + 1
+            guard let productValueBRL = product.valueBRL else {
+                lbTotalDollar.text = "-"
+                lbTotalReal.text = "-"
+                
+                showErrorAlert()
+                return
             }
             
             totalUSD += product.value

@@ -28,6 +28,10 @@ class ShoppingTableViewController: UITableViewController {
         loadProducts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ProductViewController {
             if (tableView.indexPathForSelectedRow != nil ) {
@@ -67,10 +71,18 @@ class ShoppingTableViewController: UITableViewController {
         let product = fetchedResultController.object(at: indexPath)
         
         cell.nameLabel.text = product.name
-        cell.priceLabel.text = product.value.getCurrencyInputFormat(currencySymbol: "US$")
+        cell.priceLabel.text = product.value.getCurrencyInputFormat(currencySymbol: "US$ ")
+        
+        if let productValueBRL = product.valueBRL {
+            cell.convertedPricePreviewLabel.text = productValueBRL.getCurrencyInputFormat(currencySymbol: "R$ ")
+        } else {
+            cell.convertedPricePreviewLabel.text = "-"
+        }
         
         if let image = product.photo as? UIImage {
             cell.photoImageView.image = image
+        } else {
+            cell.photoImageView.image = UIImage(named: "no-image")
         }
         
         return cell
