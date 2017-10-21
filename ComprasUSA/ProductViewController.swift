@@ -110,7 +110,7 @@ class ProductViewController: UIViewController {
 
     @IBAction func setProductImageView(_ sender: UIButton) {
         //Criando o alerta que será apresentado ao usuário
-        let alert = UIAlertController(title: "Selecionar imagem do produto", message: "De onde você quer escolher a imagem ?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Selecionar imagem do produto", message: "De onde você quer escolher a imagem?", preferredStyle: .actionSheet)
         
         //Verificamos se o device possui câmera. Se sim, adicionamos a devida UIAlertAction
         if UIImagePickerController.isSourceTypeAvailable(.camera) {

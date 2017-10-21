@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="9if-nB-rrG"/>
@@ -92,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ld-wQ-vUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657.5" y="-466.90140845070425"/>
+            <point key="canvasLocation" x="1146" y="-565"/>
         </scene>
         <!--Cadastrar produto-->
         <scene sceneID="k9F-Y8-1zb">
@@ -211,13 +211,7 @@
                             <constraint firstAttribute="trailing" secondItem="tRI-7w-3RH" secondAttribute="trailing" constant="16" id="zcg-EZ-DJd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cadastrar produto" id="WJb-9a-dQc">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="Q02-Ie-bab">
-                            <connections>
-                                <action selector="cancel:" destination="eAH-1f-oNu" id="JqY-tS-SeF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cadastrar produto" id="WJb-9a-dQc"/>
                     <connections>
                         <outlet property="btAddState" destination="xQc-hW-tYn" id="Ggl-6J-n8G"/>
                         <outlet property="btSaveProduct" destination="tRI-7w-3RH" id="S7X-JR-ORS"/>
@@ -230,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYF-6t-MIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810.625" y="-490.14084507042253"/>
+            <point key="canvasLocation" x="2004" y="-565"/>
         </scene>
         <!--Compras-->
         <scene sceneID="ICb-hH-dcJ">
@@ -247,7 +241,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCM-D3-pJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-466"/>
+            <point key="canvasLocation" x="251" y="-565"/>
         </scene>
         <!--Ajustes-->
         <scene sceneID="wg7-f3-ORb">
@@ -383,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="359.15492957746477"/>
+            <point key="canvasLocation" x="2003" y="250"/>
         </scene>
         <!--Total de compra-->
         <scene sceneID="69i-XX-Kia">
@@ -397,7 +391,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMI-wu-eU0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em US$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMI-wu-eU0">
                                 <rect key="frame" x="24" y="52" width="288" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kGS-yv-rtN"/>
@@ -452,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctx-Nc-s6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5.625" y="1105.9859154929577"/>
+            <point key="canvasLocation" x="-555" y="1018"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -477,9 +471,9 @@
     </scenes>
     <resources>
         <image name="default" width="16" height="16"/>
-        <image name="defaultPhoto" width="540" height="540"/>
         <image name="gift" width="353" height="211"/>
         <image name="invoice" width="32" height="32"/>
+        <image name="no-image" width="350" height="350"/>
         <image name="settings" width="32" height="32"/>
         <image name="shopping-bag" width="32" height="32"/>
     </resources>

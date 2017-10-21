@@ -30,6 +30,7 @@ class PurchaseTotalViewController: UIViewController {
     
     func loadProducts() {
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        
         do {
             dataSource = try context.fetch(fetchRequest)
         } catch {
@@ -51,7 +52,7 @@ class PurchaseTotalViewController: UIViewController {
             }
         }
         
-        lbTotalDollar.text = String(grossValue)
+        lbTotalDollar.text = grossValue.getCurrencyInputFormat(currencySymbol: "")
         
         var realQuotation: Double = 0
         
@@ -61,7 +62,7 @@ class PurchaseTotalViewController: UIViewController {
         
         realIof = (realQuotation + ((realQuotation * Double(UserDefaults.standard.string(forKey: "iof")!)!)/100))
         
-        lbTotalReal.text = String(realIof)
+        lbTotalReal.text = realIof.getCurrencyInputFormat(currencySymbol: "")
     }
 
 }

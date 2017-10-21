@@ -16,12 +16,15 @@ class ShoppingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.estimatedRowHeight = 106
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
+        
         label.text = "Sua lista está vazia!"
         label.textAlignment = .center
         label.textColor = .black
+        
         loadProducts()
     }
     
@@ -36,9 +39,11 @@ class ShoppingTableViewController: UITableViewController {
     func loadProducts() {
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultController.delegate = self
+        
         do {
             try fetchedResultController.performFetch()
         } catch {
@@ -47,11 +52,6 @@ class ShoppingTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = fetchedResultController?.fetchedObjects?.count {
             tableView.backgroundView = (count == 0) ? label : nil
@@ -65,13 +65,14 @@ class ShoppingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductTableViewCell
         let product = fetchedResultController.object(at: indexPath)
+        
         cell.nameLabel.text = product.name
-        cell.priceLabel.text = "US$ : \(product.value)"
+        cell.priceLabel.text = product.value.getCurrencyInputFormat(currencySymbol: "US$")
+        
         if let image = product.photo as? UIImage {
             cell.photoImageView.image = image
-        } else {
-            cell.photoImageView.image = nil
         }
+        
         return cell
     }
     
@@ -86,7 +87,6 @@ class ShoppingTableViewController: UITableViewController {
             }
         }
     }
-
 }
 
 // MARK: - NSFetchedResultsControllerDelegate

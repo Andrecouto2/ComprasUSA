@@ -10,7 +10,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Cotação do dólar (R$)</string>
+			<string>Cotação do dólar</string>
 			<key>Key</key>
 			<string>quotation</string>
 			<key>KeyboardType</key>
@@ -22,13 +22,15 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>IOF</string>
+			<string>I.O.F (%)</string>
 			<key>Key</key>
 			<string>iof</string>
 			<key>DefaultValue</key>
 			<string>6.38</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
+			<key>IsSecure</key>
+			<false/>
 		</dict>
 	</array>
 </dict>
