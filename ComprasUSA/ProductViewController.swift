@@ -219,6 +219,14 @@ class ProductViewController: UIViewController {
             btSaveProduct.alpha = 0.5
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for txt in self.view.subviews {
+            if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
+                txt.resignFirstResponder()
+            }
+        }
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate
@@ -248,12 +256,4 @@ extension ProductViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return dataSource.count //O total de linhas será o total de itens em nosso dataSource
     }
-}
-
-extension ProductViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
 }

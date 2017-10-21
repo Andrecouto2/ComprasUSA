@@ -31,10 +31,10 @@ class AdjustmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tfQuotation.delegate = self
         tfQuotation.tag = 1
-        tfIof.delegate = self
         tfIof.tag = 2
+        tfQuotation.delegate = self
+        tfIof.delegate = self
         
         tbState.estimatedRowHeight = 106
         tbState.rowHeight = UITableViewAutomaticDimension
@@ -140,6 +140,14 @@ class AdjustmentsViewController: UIViewController {
         
         alertSaveStateAction?.isEnabled = true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for txt in self.view.subviews {
+            if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
+                txt.resignFirstResponder()
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -203,6 +211,8 @@ extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource 
 extension AdjustmentsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
+        
+        
         switch textField.tag {
         case 1:
             UserDefaults.standard.set(tfQuotation.text!, forKey: "quotation")
@@ -210,10 +220,5 @@ extension AdjustmentsViewController: UITextFieldDelegate {
             UserDefaults.standard.set(tfIof.text!, forKey: "iof")
         default: break
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
