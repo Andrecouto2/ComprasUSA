@@ -12,14 +12,12 @@ import CoreData
 class PurchaseTotalViewController: UIViewController {
 
     @IBOutlet weak var lbTotalDollar: UILabel!
-    
     @IBOutlet weak var lbTotalReal: UILabel!
     
     var dataSource:[Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,30 +37,41 @@ class PurchaseTotalViewController: UIViewController {
     }
 
     func calculate() {
+        var totalUSD: Double = 0
+        var totalBRL: Double = 0
         
-        var grossValue: Double = 0
-        var dollarWithImpost: Double = 0
-        
-        for product in dataSource {
-            grossValue = grossValue + product.value
-            if product.isBoughtByCard {
-                dollarWithImpost = dollarWithImpost + (product.value + ((product.value * (product.states?.tax)!)/100))
-            } else {
-                dollarWithImpost = dollarWithImpost + product.value
-            }
+        guard   let iofTaxValue = Double(UserDefaults.standard.string(forKey: "iof")!),
+                let usdQuotation = Double(UserDefaults.standard.string(forKey: "quotation")!)
+        else {
+            lbTotalDollar.text = "-"
+            lbTotalReal.text = "-"
+            
+            showErrorAlert()
+            
+            return
         }
         
-        lbTotalDollar.text = grossValue.getCurrencyInputFormat(currencySymbol: "")
+        for product in dataSource {
+            var productValueBRL = product.value * ((product.states!.tax / 100) + 1)
+            productValueBRL *= usdQuotation
+            
+            if product.isBoughtByCard {
+                productValueBRL *= (iofTaxValue / 100) + 1
+            }
+            
+            totalUSD += product.value
+            totalBRL += productValueBRL
+        }
         
-        var realQuotation: Double = 0
-        
-        realQuotation = (dollarWithImpost * Double(UserDefaults.standard.string(forKey: "quotation")!)!)
-        
-        var realIof: Double = 0
-        
-        realIof = (realQuotation + ((realQuotation * Double(UserDefaults.standard.string(forKey: "iof")!)!)/100))
-        
-        lbTotalReal.text = realIof.getCurrencyInputFormat(currencySymbol: "")
+        lbTotalDollar.text = totalUSD.getCurrencyInputFormat(currencySymbol: "")
+        lbTotalReal.text = totalBRL.getCurrencyInputFormat(currencySymbol: "")
     }
 
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Atenção", message: "Verifique na tela de ajustes se o IOF e a Cotação do Dólar estão preenchidos corretamente", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
 }

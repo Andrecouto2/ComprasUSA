@@ -110,15 +110,13 @@ class AdjustmentsViewController: UIViewController {
         tfIof.text = UserDefaults.standard.string(forKey: "iof")
     }
     
-    
-
     @IBAction func AddState(_ sender: UIButton) {
         showAlert(type: .add, state: nil)
     }
 }
 
 // MARK: - UITableViewDelegate
-extension AdjustmentsViewController: UITableViewDelegate {
+extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Excluir") { (action: UITableViewRowAction, indexPath: IndexPath) in
@@ -137,11 +135,6 @@ extension AdjustmentsViewController: UITableViewDelegate {
         editAction.backgroundColor = .blue
         return [editAction, deleteAction]
     }
-    
-}
-
-// MARK: - UITableViewDelegate
-extension AdjustmentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
@@ -163,7 +156,6 @@ extension AdjustmentsViewController: UITableViewDataSource {
         cell.detailTextLabel?.textColor = .red
         return cell
     }
-    
 }
 
 extension AdjustmentsViewController: UITextFieldDelegate {
@@ -183,5 +175,4 @@ extension AdjustmentsViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
 }
