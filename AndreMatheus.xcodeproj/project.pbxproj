@@ -36,7 +36,7 @@
 		907FECD41F8964C50023514E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9081D93B1F80132A0077A1DF /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
 		9081D93D1F801D530077A1DF /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
-		909595B91F7FEE1800BD00EF /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		909595B91F7FEE1800BD00EF /* AndreMatheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndreMatheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		909595BC1F7FEE1800BD00EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		909595C31F7FEE1800BD00EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		909595C51F7FEE1800BD00EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		909595BA1F7FEE1800BD00EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				909595B91F7FEE1800BD00EF /* ComprasUSA.app */,
+				909595B91F7FEE1800BD00EF /* AndreMatheus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		909595B81F7FEE1800BD00EF /* ComprasUSA */ = {
+		909595B81F7FEE1800BD00EF /* AndreMatheus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 909595CD1F7FEE1800BD00EF /* Build configuration list for PBXNativeTarget "ComprasUSA" */;
+			buildConfigurationList = 909595CD1F7FEE1800BD00EF /* Build configuration list for PBXNativeTarget "AndreMatheus" */;
 			buildPhases = (
 				909595B51F7FEE1800BD00EF /* Sources */,
 				909595B61F7FEE1800BD00EF /* Frameworks */,
@@ -133,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = ComprasUSA;
+			name = AndreMatheus;
 			productName = ComprasUSA;
-			productReference = 909595B91F7FEE1800BD00EF /* ComprasUSA.app */;
+			productReference = 909595B91F7FEE1800BD00EF /* AndreMatheus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 909595B41F7FEE1800BD00EF /* Build configuration list for PBXProject "ComprasUSA" */;
+			buildConfigurationList = 909595B41F7FEE1800BD00EF /* Build configuration list for PBXProject "AndreMatheus" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -168,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				909595B81F7FEE1800BD00EF /* ComprasUSA */,
+				909595B81F7FEE1800BD00EF /* AndreMatheus */,
 			);
 		};
 /* End PBXProject section */
@@ -350,7 +350,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		909595B41F7FEE1800BD00EF /* Build configuration list for PBXProject "ComprasUSA" */ = {
+		909595B41F7FEE1800BD00EF /* Build configuration list for PBXProject "AndreMatheus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				909595CB1F7FEE1800BD00EF /* Debug */,
@@ -359,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		909595CD1F7FEE1800BD00EF /* Build configuration list for PBXNativeTarget "ComprasUSA" */ = {
+		909595CD1F7FEE1800BD00EF /* Build configuration list for PBXNativeTarget "AndreMatheus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				909595CE1F7FEE1800BD00EF /* Debug */,
