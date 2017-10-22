@@ -101,14 +101,15 @@ class AdjustmentsViewController: UIViewController {
         
         let saveStateAction = UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) in
             guard   let name = alert.textFields?[0].text,
-                    let tax = alert.textFields?[1].text, (Double(tax) != nil)
+                    let taxString = alert.textFields?[1].text,
+                    let tax = taxString.doubleValue
             else {
                 return
             }
             
             let state = state ?? State(context: self.context)
             state.name = name
-            state.tax = Double(tax)!
+            state.tax = tax
             
             do {
                 try self.context.save()
@@ -118,8 +119,6 @@ class AdjustmentsViewController: UIViewController {
             }
         })
         
-        saveStateAction.isEnabled = false
-        
         self.alertStateNameTextField = alert.textFields?[0]
         self.alertStateTaxTextField = alert.textFields?[1]
         self.alertSaveStateAction = saveStateAction
@@ -127,18 +126,25 @@ class AdjustmentsViewController: UIViewController {
         alert.addAction(saveStateAction)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         
+        validateAlertTextFields()
+        
         present(alert, animated: true, completion: nil)
     }
     
     func alertTextFieldTextChanged(_ sender: UITextField) {
+        validateAlertTextFields()
+    }
+    
+    func validateAlertTextFields() {
         guard   let name = alertStateNameTextField?.text,
-                let tax = alertStateTaxTextField?.text
-        else {
-            alertSaveStateAction?.isEnabled = false
-            return
+                let taxString = alertStateTaxTextField?.text,
+                (taxString.doubleValue != nil)
+            else {
+                alertSaveStateAction?.isEnabled = false
+                return
         }
         
-        if name.isEmpty || tax.isEmpty || Double(tax) == nil {
+        if name.isEmpty || taxString.isEmpty {
             alertSaveStateAction?.isEnabled = false
             return
         }
@@ -208,6 +214,7 @@ extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let state = self.dataSource[indexPath.row]
         tableView.setEditing(false, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         self.showAlert(type: .edit, state: state)
     }
@@ -216,14 +223,24 @@ extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource 
 extension AdjustmentsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        
-        
         switch textField.tag {
-        case 1:
-            UserDefaults.standard.set(tfQuotation.text!, forKey: "quotation")
-        case 2:
-            UserDefaults.standard.set(tfIof.text!, forKey: "iof")
-        default: break
+            case 1:
+                if let quotation = tfQuotation.text {
+                    if let doubleValue = quotation.doubleValue {
+                        UserDefaults.standard.set(String(doubleValue), forKey: "quotation")
+                    } else {
+                        UserDefaults.standard.set(quotation, forKey: "quotation")
+                    }
+                }
+            case 2:
+                if let iof = tfIof.text {
+                    if let doubleValue = iof.doubleValue {
+                        UserDefaults.standard.set(String(doubleValue), forKey: "iof")
+                    } else {
+                        UserDefaults.standard.set(iof, forKey: "iof")
+                    }
+                }
+            default: break
         }
     }
 }

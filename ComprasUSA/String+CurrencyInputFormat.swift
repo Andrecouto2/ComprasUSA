@@ -53,4 +53,22 @@ extension String {
         
         return ajustedNumber.stringValue
     }
+    
+    var doubleValue: Double? {
+        
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = "."
+        
+        if let result = formatter.number(from: self) {
+            return result.doubleValue
+        } else {
+            formatter.decimalSeparator = ","
+            
+            if let result = formatter.number(from: self) {
+                return result.doubleValue
+            }
+        }
+        
+        return nil
+    }
 }
