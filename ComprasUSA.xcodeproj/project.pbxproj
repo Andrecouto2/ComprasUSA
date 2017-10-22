@@ -11,7 +11,7 @@
 		8A2650721F9990C30071D6E5 /* Double+CurrencyInputFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2650711F9990C30071D6E5 /* Double+CurrencyInputFormat.swift */; };
 		8AA2583C1F9BFE4900719842 /* Product+CurrencyExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2583B1F9BFE4900719842 /* Product+CurrencyExchange.swift */; };
 		901CC5121F803B2A0027F22E /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */; };
-		901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */; };
+		901CC5141F803BAA0027F22E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5131F803BAA0027F22E /* SettingsViewController.swift */; };
 		901CC5161F803BDC0027F22E /* PurchaseTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */; };
 		903ED5D21F8094B8005967F8 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */; };
 		9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041C2901F8080BF00507696 /* ProductViewController.swift */; };
@@ -29,7 +29,7 @@
 		8A2650711F9990C30071D6E5 /* Double+CurrencyInputFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyInputFormat.swift"; sourceTree = "<group>"; };
 		8AA2583B1F9BFE4900719842 /* Product+CurrencyExchange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CurrencyExchange.swift"; sourceTree = "<group>"; };
 		901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
-		901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentsViewController.swift; sourceTree = "<group>"; };
+		901CC5131F803BAA0027F22E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTotalViewController.swift; sourceTree = "<group>"; };
 		903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		9041C2901F8080BF00507696 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +60,6 @@
 			children = (
 				9041C2901F8080BF00507696 /* ProductViewController.swift */,
 				901CC5111F803B2A0027F22E /* ShoppingTableViewController.swift */,
-				901CC5131F803BAA0027F22E /* AdjustmentsViewController.swift */,
 				901CC5151F803BDC0027F22E /* PurchaseTotalViewController.swift */,
 				903ED5D11F8094B8005967F8 /* ProductTableViewCell.swift */,
 			);
@@ -97,6 +96,7 @@
 		909595BB1F7FEE1800BD00EF /* ComprasUSA */ = {
 			isa = PBXGroup;
 			children = (
+				909A432C1F9CFE9D00FFB67C /* Settings */,
 				903ED5D01F8091E5005967F8 /* extentions */,
 				901CC5171F803C980027F22E /* Product */,
 				909595BC1F7FEE1800BD00EF /* AppDelegate.swift */,
@@ -108,6 +108,14 @@
 				907FECD41F8964C50023514E /* Settings.bundle */,
 			);
 			path = ComprasUSA;
+			sourceTree = "<group>";
+		};
+		909A432C1F9CFE9D00FFB67C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				901CC5131F803BAA0027F22E /* SettingsViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +201,7 @@
 				8AA2583C1F9BFE4900719842 /* Product+CurrencyExchange.swift in Sources */,
 				9041C2911F8080BF00507696 /* ProductViewController.swift in Sources */,
 				9081D93C1F80132A0077A1DF /* ComprasUSA.xcdatamodeld in Sources */,
-				901CC5141F803BAA0027F22E /* AdjustmentsViewController.swift in Sources */,
+				901CC5141F803BAA0027F22E /* SettingsViewController.swift in Sources */,
 				909595BD1F7FEE1800BD00EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

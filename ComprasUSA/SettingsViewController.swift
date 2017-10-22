@@ -14,7 +14,7 @@ enum StateType {
     case edit
 }
 
-class AdjustmentsViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tfQuotation: UITextField!
     @IBOutlet weak var tfIof: UITextField!
@@ -179,7 +179,7 @@ class AdjustmentsViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Excluir") { (action: UITableViewRowAction, indexPath: IndexPath) in
@@ -237,7 +237,7 @@ extension AdjustmentsViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension AdjustmentsViewController: UITextFieldDelegate {
+extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         switch textField.tag {
