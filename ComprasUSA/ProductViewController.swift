@@ -20,8 +20,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var btSaveProduct: UIButton!
     
     var pickerView: UIPickerView!
-    
-    var dataSource:[State] = []
+    var dataSource: [State] = []
     
     // MARK: - Properties
     var smallImage: UIImage!
@@ -51,17 +50,15 @@ class ProductViewController: UIViewController {
         pickerView.backgroundColor = .white
         pickerView.delegate = self
         pickerView.dataSource = self
-    
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
    
         let btCancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(finish))
         let btSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
         let btDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
         toolbar.items = [btCancel, btSpace, btDone]
 
         tfState.inputView = pickerView
-
         tfState.inputAccessoryView = toolbar
     }
     
@@ -78,28 +75,42 @@ class ProductViewController: UIViewController {
         validateForm()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        purgeUnsavedChanges()
+    }
+    
+    func purgeUnsavedChanges() {
+        if product != nil {
+            
+            // Remove o produto caso ele não esteja persistido e a view esteja sofrendo pop
+            // Reverte as alterações não salvas do produto previamente persistido
+            if product.objectID.isTemporaryID && isMovingFromParentViewController {
+                context.delete(product)
+                product = nil
+            } else if !product.objectID.isTemporaryID {
+                context.refresh(product, mergeChanges: false)
+            }
+        }
+    }
+    
     func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
         fetchRequest.sortDescriptors = [sortDescriptor]
+        
         do {
             dataSource = try context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
     }
-
-    @IBAction func cancel(_ sender: UIBarButtonItem?) {
-        if product != nil && product.name == nil {
-            context.delete(product)
-        }
-        dismiss(animated: true, completion: nil)
-        
-        self.navigationController?.popViewController(animated:true)
-    }
     
     func done() {
-        tfState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
+        if !dataSource.isEmpty {
+            tfState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
+        }
+        
         validateForm()
         finish()
     }
@@ -138,21 +149,21 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func saveProduct(_ sender: UIButton) {
+        guard   let name = tfName.text,
+                let valueString = tfValue.text,
+                let value = Double(valueString.removeCurrencyInputFormat()),
+                let state = getStateFromTextField() else {
+            return
+        }
+        
         if product == nil {
             product = Product(context: context)
         }
         
-        guard let name = tfName.text else {
-            return
-        }
-        guard let value = tfValue.text, (Double(value.removeCurrencyInputFormat()) != nil) else {
-            return
-        }
-        
         product.name = name
-        product.value = Double(value.removeCurrencyInputFormat())!
+        product.value = value
         product.isBoughtByCard = swCard.isOn
-        product.states = dataSource[pickerView.selectedRow(inComponent: 0)]
+        product.states = state
         
         print("\(pickerView.selectedRow(inComponent: 0))")
         print("\(dataSource[pickerView.selectedRow(inComponent: 0)])")
@@ -166,14 +177,29 @@ class ProductViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        cancel(nil)
+        
+        purgeUnsavedChanges()
+        navigationController?.popViewController(animated:true)
     }
    
     // MARK:  Methods
+    func getStateFromTextField() -> State? {
+        if let stateNameInTextField = tfState.text {
+            for state in dataSource {
+                if state.name == stateNameInTextField {
+                    return state
+                }
+            }
+        }
+        
+        return nil
+    }
+    
     func selectPicture(sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
         imagePicker.delegate = self
+        
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -196,7 +222,7 @@ class ProductViewController: UIViewController {
             }
         }
         if let state = tfState.text {
-            if state.isEmpty {
+            if state.isEmpty || getStateFromTextField() == nil {
                 isFormValid = false;
             }
         }

@@ -51,6 +51,9 @@ class AdjustmentsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loadStates()
+        
         tfQuotation.text = UserDefaults.standard.string(forKey: "quotation")
         tfIof.text = UserDefaults.standard.string(forKey: "iof")
     }
@@ -58,7 +61,9 @@ class AdjustmentsViewController: UIViewController {
     func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
         fetchRequest.sortDescriptors = [sortDescriptor]
+        
         do {
             dataSource = try context.fetch(fetchRequest)
             tbState.reloadData()
