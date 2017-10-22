@@ -76,6 +76,19 @@ class AdjustmentsViewController: UIViewController {
         showAlert(type: .add, state: nil)
     }
     
+    func isExistingState(statename: String) -> Bool {
+        
+        return dataSource.contains(where: { (state) -> Bool in
+            guard let estado = state.name else { return false}
+            if estado.lowercased() == statename.lowercased() {
+                return true
+            } else {
+                return false
+            }
+            
+        });
+    }
+    
     func showAlert(type: StateType, state: State?) {
         let title = (type == .add) ? "Adicionar" : "Editar"
         let alert = UIAlertController(title: "\(title) Estado", message: nil, preferredStyle: .alert)
@@ -112,8 +125,12 @@ class AdjustmentsViewController: UIViewController {
             state.tax = tax
             
             do {
-                try self.context.save()
-                self.loadStates()
+                if !self.isExistingState(statename: name) {
+                    try self.context.save()
+                    self.loadStates()
+                } else {
+                    self.context.delete(state)
+                }
             } catch {
                 print(error.localizedDescription)
             }
