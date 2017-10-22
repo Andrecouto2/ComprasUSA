@@ -11,15 +11,17 @@ import Foundation
 extension Product {
     
     var valueBRL: Double? {
-        guard   let iofTaxValue = Double(UserDefaults.standard.string(forKey: "iof")!),
-                let usdQuotation = Double(UserDefaults.standard.string(forKey: "quotation")!),
+        guard   let iofTaxString = UserDefaults.standard.string(forKey: "iof"),
+                let iofTaxValue = iofTaxString.doubleValue,
+                let usdQuotationString = UserDefaults.standard.string(forKey: "quotation"),
+                let usdQuotationValue = usdQuotationString.doubleValue,
                 let states = self.states
             else {
                 return nil
         }
         
         var productValueBRL = self.value * ((states.tax / 100) + 1)
-        productValueBRL *= usdQuotation
+        productValueBRL *= usdQuotationValue
         
         if self.isBoughtByCard {
             productValueBRL *= (iofTaxValue / 100) + 1

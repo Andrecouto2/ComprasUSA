@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="toO-nD-554">
                                             <rect key="frame" x="8" y="8" width="74" height="74"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="74" id="Je3-hu-Cid"/>
@@ -481,9 +481,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultPhoto" width="540" height="540"/>
         <image name="gift" width="353" height="211"/>
         <image name="invoice" width="25" height="25"/>
+        <image name="no-image" width="350" height="350"/>
         <image name="settings" width="25" height="25"/>
         <image name="shopping-bag" width="25" height="25"/>
     </resources>
