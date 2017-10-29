@@ -125,7 +125,7 @@ class SettingsViewController: UIViewController {
             state.tax = tax
             
             do {
-                if !self.isExistingState(statename: name) {
+                if !self.isExistingState(statename: name) || type == .edit {
                     try self.context.save()
                     self.loadStates()
                 } else {
